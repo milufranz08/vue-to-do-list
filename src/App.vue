@@ -6,7 +6,7 @@
       <input type="text" v-model="item" />
       <button>Submit</button>
     </form>
-    <List :list="list"></List>
+    <List :list="list" @clicked="deleteTodo"></List>
   </div>
 </template>
 
@@ -27,6 +27,9 @@ export default {
     addTodo() {
       this.list.push(this.item);
       this.item = "";
+    },
+    deleteTodo(index) {
+      this.list = [...this.list.slice(0, index), ...this.list.slice(index + 1)];
     }
   }
 };

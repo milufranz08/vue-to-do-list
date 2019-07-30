@@ -1,6 +1,11 @@
 <template>
   <ul class="list_wrapper">
-    <li class="list_item" v-for="(data, index) in list" :key="index">
+    <li
+      class="list_item"
+      v-for="(data, index) in list"
+      :key="index"
+      @click="onClick(index)"
+    >
       {{ data }}
     </li>
   </ul>
@@ -11,6 +16,11 @@ export default {
   name: "List",
   props: {
     list: Array
+  },
+  methods: {
+    onClick(index) {
+      this.$emit("clicked", index);
+    }
   }
 };
 </script>
