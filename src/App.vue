@@ -14,12 +14,16 @@ export default {
   name: "app",
   data() {
     return {
-      item: ""
+      item: "",
+      list: []
     };
   },
   methods: {
     addTodo() {
+      this.list.push(this.item);
       this.item = "";
+
+      console.log("this.list", this.list);
     }
   }
 };
