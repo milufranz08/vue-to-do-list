@@ -6,10 +6,12 @@
       <input type="text" v-model="item" />
       <button>Submit</button>
     </form>
+    <List :list="list"></List>
   </div>
 </template>
 
 <script>
+import List from "./components/List";
 export default {
   name: "app",
   data() {
@@ -18,12 +20,13 @@ export default {
       list: []
     };
   },
+  components: {
+    List
+  },
   methods: {
     addTodo() {
       this.list.push(this.item);
       this.item = "";
-
-      console.log("this.list", this.list);
     }
   }
 };
